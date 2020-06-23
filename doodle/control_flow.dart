@@ -18,18 +18,11 @@ List<int> getEvenNumbers(Iterable<int> numbers) {
 
 void main() {
   for (var i = 1; i < 7; i += 1) {
-    var result = print('$i ${isEven(i)}');
+    print('$i ${isEven(i)}');
   }
 
   var numbers = List.generate(10, (i) => i);
   print(getEvenNumbers(numbers));
 
-  print(lostNumbers);
 }
 
-var lostNumbers = [4, 8, 15];
-
-var nobelGases = {
-  'He':'Helium',
-  'Ne':'Neon'
-};
