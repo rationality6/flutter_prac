@@ -4,6 +4,15 @@ void main() {
   runApp(new MyApp());
 }
 
+class _RandomWordsState extends State<RandomWords> {
+  final _suggestions = <WordPair>[];
+  final _biggerFont = TextStyle(fontSize: 18.0);
+}
+
+Widget _buildSuggestions(){
+  
+}
+
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
@@ -83,20 +92,9 @@ class _MyAppState extends State<MyApp> {
                       color: Colors.amber,
                       onPressed: () {
                         timesCounter();
-                      }
-                  ),
-                  RaisedButton(
-                      child: Text(
-                        "Times",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      color: Colors.amberAccent,
-                      onPressed: () {
-                        timesCounter();
-                      }
-                  ),
+                      }),
                 ],
-              )
+              ),
             ],
           ),
         ),
