@@ -30,46 +30,44 @@ class _RandomWordsState extends State<RandomWords> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(wordPair.asPascalCase),
-              Text('$_counter'),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                RaisedButton(
-                    child: Text("1"),
-                    onPressed: () {
-                      _incrementCounter(1);
-                    }),
-                RaisedButton(
-                    child: Text("2"),
-                    onPressed: () {
-                      _incrementCounter(2);
-                    }),
-                RaisedButton(
-                    child: Text("3"),
-                    onPressed: () {
-                      _incrementCounter(3);
-                    }),
-              ]),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                RaisedButton(
-                    child: Text("1"),
-                    onPressed: () {
-                      _incrementCounter(1);
-                    }),
-                RaisedButton(
-                    child: Text("2"),
-                    onPressed: () {
-                      _incrementCounter(2);
-                    }),
-                RaisedButton(
-                    child: Text("3"),
-                    onPressed: () {
-                      _incrementCounter(3);
-                    }),
-              ])
-            ]),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text(wordPair.asPascalCase),
+          Text('$_counter'),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            RaisedButton(
+                child: Text("1"),
+                onPressed: () {
+                  _incrementCounter(1);
+                }),
+            RaisedButton(
+                child: Text("2"),
+                onPressed: () {
+                  _incrementCounter(2);
+                }),
+            RaisedButton(
+                child: Text("3"),
+                onPressed: () {
+                  _incrementCounter(3);
+                }),
+          ]),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            RaisedButton(
+                child: Text("1"),
+                onPressed: () {
+                  _incrementCounter(1);
+                }),
+            RaisedButton(
+                child: Text("2"),
+                onPressed: () {
+                  _incrementCounter(2);
+                }),
+            RaisedButton(
+                child: Text("3"),
+                onPressed: () {
+                  _incrementCounter(3);
+                }),
+          ])
+        ]),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
