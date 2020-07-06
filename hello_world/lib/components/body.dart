@@ -2,40 +2,86 @@ import 'package:flutter/material.dart';
 import 'package:hello_world/components/categorys.dart';
 import 'package:hello_world/components/my_card.dart';
 
+import 'package:hello_world/models/movie_ex.dart';
 import 'package:hello_world/components/random_words.dart';
+import 'package:hello_world/components/genres.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [Categorylist(), Genres(), MyCard()],
+      children: [Categorylist(), Genres(), MovieCarousel()],
     );
   }
 }
 
-class Genres extends StatelessWidget {
+class MovieCarousel extends StatefulWidget {
   @override
+  _MovieCarouselState createState() => _MovieCarouselState();
+}
+
+class _MovieCarouselState extends State<MovieCarousel> {
+  PageController _pageController;
+  int initialPage = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pageController.dispose();
+  }
+
   Widget build(BuildContext context) {
-    List<String> genres = ["액션", "범죄", "코메디", "드라마", "공포", "애니메이션"];
-    return Container(
-        height: 36,
-        child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: genres.length,
-            itemBuilder: (centext, index) => GenreCard(genre: genres[index])));
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 20),
+      child: AspectRatio(
+        aspectRatio: 0.85,
+        child: PageView.builder(
+            itemCount: movies.length,
+            itemBuilder: (context, index) => MovieCard(movie: movies[index])),
+      ),
+    );
   }
 }
 
-class GenreCard extends StatelessWidget {
-  final String genre;
-  const GenreCard({Key key, this.genre}) : super(key: key);
+const kDefaultShadow = BoxShadow(
+  offset: Offset(0, 4),
+  blurRadius: 4,
+  color: Colors.black26,
+);
 
+class MovieCard extends StatelessWidget {
+  final Movie movie;
+
+  const MovieCard({Key key, this.movie}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(left: 20),
-      child: Text(
-        genre,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        children: [
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                boxShadow: [kDefaultShadow],
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(movie.poster),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 10),
+            child: Text(movie.title),
+          )
+        ],
       ),
     );
   }

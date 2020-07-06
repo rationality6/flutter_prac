@@ -22,7 +22,7 @@ class _CategorylistState extends State<Categorylist> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 8),
-      height: 60,
+      height: 50,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,
@@ -39,8 +39,7 @@ class _CategorylistState extends State<Categorylist> {
           setState(() {
             selectedCategory = index;
           });
-          Navigator.push(context,
-              MaterialPageRoute(builder: (BuildContext context) => MyCard()));
+          print("foobar");
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

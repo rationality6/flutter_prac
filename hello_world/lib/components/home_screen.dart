@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hello_world/components/body.dart';
+import 'package:hello_world/components/my_card.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
