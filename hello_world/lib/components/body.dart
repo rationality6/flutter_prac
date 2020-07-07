@@ -6,6 +6,8 @@ import 'package:hello_world/models/movie_ex.dart';
 import 'package:hello_world/components/random_words.dart';
 import 'package:hello_world/components/genres.dart';
 
+import 'package:flutter_svg/flutter_svg.dart';
+
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -62,7 +64,7 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 50),
       child: Column(
         children: [
           Expanded(
@@ -79,7 +81,24 @@ class MovieCard extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
-            child: Text(movie.title),
+            child: Text(
+              movie.title,
+              style: Theme.of(context)
+                  .textTheme
+                  .headline5
+                  .copyWith(fontWeight: FontWeight.w600),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                "assets/icons/star_fill.svg",
+                height: 20,
+              ),
+              SizedBox(width: 20 / 2),
+              Text("${movie.rating}")
+            ],
           )
         ],
       ),
