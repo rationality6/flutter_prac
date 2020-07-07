@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/components/my_card.dart';
 
 class Categorylist extends StatefulWidget {
   @override
@@ -39,7 +38,6 @@ class _CategorylistState extends State<Categorylist> {
           setState(() {
             selectedCategory = index;
           });
-          print("foobar");
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
