@@ -1,8 +1,29 @@
 import 'package:flutter/material.dart';
+// models
+import 'package:hello_world/models/movie_ex.dart';
+// components
+import 'package:hello_world/components/details/backdrop_and_rating.dart';
+import 'package:hello_world/components/details/title_text.dart';
+import 'package:hello_world/components/details/genres.dart';
 
 class Body extends StatelessWidget {
+  final Movie movie;
+
+  const Body({
+    Key key,
+    this.movie,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    Size size = MediaQuery.of(context).size;
+    return Column(
+      children: [
+        BackdropAndRating(size: size, movie: movie),
+        SizedBox(height: 20 / 2),
+        TitleText(movie: movie),
+        Genres(movie: movie),
+      ],
+    );
   }
 }

@@ -24,14 +24,19 @@ class HomeScreen extends StatelessWidget {
           print("pressed left");
         },
       ),
-      actions: <Widget>[
+      actions: [
         IconButton(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            color: Colors.black,
-            icon: FaIcon(FontAwesomeIcons.search),
-            onPressed: () {
-              print("pressed right");
-            }),
+          padding: EdgeInsets.symmetric(
+            horizontal: 20,
+          ),
+          color: Colors.black,
+          icon: FaIcon(
+            FontAwesomeIcons.search,
+          ),
+          onPressed: () {
+            print("pressed right");
+          },
+        ),
       ],
     );
   }
