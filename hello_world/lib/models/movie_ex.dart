@@ -34,7 +34,7 @@ List<Movie> movies = [
     rating: 7.3,
     criticsReview: 50,
     metascoreRating: 76,
-    genra: ["Action", "Drama"],
+    genra: ["액션", "드라마"],
     plot: plotText,
     cast: [
       {
@@ -52,11 +52,6 @@ List<Movie> movies = [
         "movieName": "Ken Miles",
         "image": "assets/images/actor_3.png",
       },
-      {
-        "orginalName": "Caitriona Balfe",
-        "movieName": "Mollie",
-        "image": "assets/images/actor_4.png",
-      },
     ],
   ),
   Movie(
@@ -69,7 +64,7 @@ List<Movie> movies = [
     rating: 8.2,
     criticsReview: 50,
     metascoreRating: 76,
-    genra: ["Action", "Biography", "Drama"],
+    genra: ["액션", "전기", "드라마", "쪼아"],
     plot: plotText,
     cast: [
       {
@@ -104,19 +99,9 @@ List<Movie> movies = [
     rating: 7.6,
     criticsReview: 50,
     metascoreRating: 79,
-    genra: ["Action", "Drama"],
+    genra: ["액션", "드라마"],
     plot: plotText,
     cast: [
-      {
-        "orginalName": "James Mangold",
-        "movieName": "Director",
-        "image": "assets/images/actor_1.png",
-      },
-      {
-        "orginalName": "Matt Damon",
-        "movieName": "Carroll",
-        "image": "assets/images/actor_2.png",
-      },
       {
         "orginalName": "Christian Bale",
         "movieName": "Ken Miles",

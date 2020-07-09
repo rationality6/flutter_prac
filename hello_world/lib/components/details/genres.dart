@@ -17,6 +17,7 @@ class Genres extends StatelessWidget {
       child: SizedBox(
         height: 36,
         child: ListView.builder(
+          padding: EdgeInsets.symmetric(horizontal: 15),
           scrollDirection: Axis.horizontal,
           itemCount: movie.genra.length,
           itemBuilder: (context, index) => GenreButton(
