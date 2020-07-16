@@ -5,9 +5,9 @@ import 'package:hello_world/components/etc/sample_page.dart';
 
 class SlideRightRoute extends PageRouteBuilder {
   final Widget page;
-  final double top_down;
-  final double left_right;
-  SlideRightRoute({this.page, this.top_down, this.left_right})
+  final double topDown;
+  final double leftRight;
+  SlideRightRoute({this.page, this.topDown, this.leftRight})
       : super(
           pageBuilder: (
             BuildContext context,
@@ -23,9 +23,40 @@ class SlideRightRoute extends PageRouteBuilder {
           ) =>
               SlideTransition(
             position: Tween<Offset>(
-              begin: new Offset(left_right, top_down),
+              begin: new Offset(leftRight, topDown),
               end: Offset.zero,
             ).animate(animation),
+            child: child,
+          ),
+        );
+}
+
+class ScaleRoute extends PageRouteBuilder {
+  final Widget page;
+  ScaleRoute({this.page})
+      : super(
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              ScaleTransition(
+            scale: Tween<double>(
+              begin: 0.0,
+              end: 1.0,
+            ).animate(
+              CurvedAnimation(
+                parent: animation,
+                curve: Curves.fastOutSlowIn,
+              ),
+            ),
             child: child,
           ),
         );
@@ -66,8 +97,8 @@ class RouterTest extends StatelessWidget {
                 Navigator.of(context).push(
                   SlideRightRoute(
                     page: SamplePage(),
-                    top_down: 0,
-                    left_right: 1,
+                    topDown: 0,
+                    leftRight: 1,
                   ),
                 ),
               },
@@ -82,8 +113,8 @@ class RouterTest extends StatelessWidget {
                 Navigator.of(context).push(
                   SlideRightRoute(
                     page: SamplePage(),
-                    top_down: 0,
-                    left_right: -1,
+                    topDown: 0,
+                    leftRight: -1,
                   ),
                 ),
               },
@@ -98,8 +129,8 @@ class RouterTest extends StatelessWidget {
                 Navigator.of(context).push(
                   SlideRightRoute(
                     page: SamplePage(),
-                    top_down: -1,
-                    left_right: 0,
+                    topDown: -1,
+                    leftRight: 0,
                   ),
                 ),
               },
@@ -114,8 +145,22 @@ class RouterTest extends StatelessWidget {
                 Navigator.of(context).push(
                   SlideRightRoute(
                     page: SamplePage(),
-                    top_down: 1,
-                    left_right: 0,
+                    topDown: 1,
+                    leftRight: 0,
+                  ),
+                ),
+              },
+            ),
+            FlatButton(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+                side: BorderSide(color: Colors.black38),
+              ),
+              child: Text("ScaleBigRoute"),
+              onPressed: () => {
+                Navigator.of(context).push(
+                  ScaleRoute(
+                    page: SamplePage(),
                   ),
                 ),
               },
