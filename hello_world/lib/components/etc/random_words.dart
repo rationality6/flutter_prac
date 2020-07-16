@@ -17,11 +17,11 @@ class _RandomWordsState extends State<RandomWords> {
     });
   }
 
-  // void _timesCounter() {
-  //   setState(() {
-  //     _counter *= 9;
-  //   });
-  // }
+  void _timesCounter(num) {
+    setState(() {
+      _counter *= num;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +78,29 @@ class _RandomWordsState extends State<RandomWords> {
                   child: Text("6"),
                   onPressed: () {
                     _incrementCounter(6);
+                  },
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FlatButton(
+                  child: Text("*2"),
+                  onPressed: () => {
+                    _timesCounter(2),
+                  },
+                ),
+                FlatButton(
+                  child: Text("*5"),
+                  onPressed: () => {
+                    _timesCounter(5),
+                  },
+                ),
+                FlatButton(
+                  child: Text("*9"),
+                  onPressed: () => {
+                    _timesCounter(9),
                   },
                 ),
               ],

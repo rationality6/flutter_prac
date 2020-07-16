@@ -9,6 +9,8 @@ import 'package:hello_world/components/genres/genres.dart';
 import 'package:hello_world/components/etc/random_words.dart';
 import 'package:hello_world/components/etc/router_test.dart';
 
+import 'package:hello_world/components/etc/random_lists.dart';
+
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,20 @@ class Body extends StatelessWidget {
               Navigator.of(context).push(
                 _createRoute(),
               ),
+            },
+          ),
+          FlatButton(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+              side: BorderSide(color: Colors.black38),
+            ),
+            child: Text("randomLists"),
+            onPressed: () => {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => RandomLists(),
+                ),
+              )
             },
           ),
           Container(

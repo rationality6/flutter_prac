@@ -31,6 +31,32 @@ class SlideRightRoute extends PageRouteBuilder {
         );
 }
 
+class NavRoute extends PageRouteBuilder {
+  final Widget page;
+  NavRoute({this.page})
+      : super(
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              SlideTransition(
+            position: Tween<Offset>(
+              begin: new Offset(-1, 0),
+              end: Offset(-0.2, 0),
+            ).animate(animation),
+            child: child,
+          ),
+        );
+}
+
 class ScaleRoute extends PageRouteBuilder {
   final Widget page;
   ScaleRoute({this.page})
@@ -160,6 +186,20 @@ class RouterTest extends StatelessWidget {
               onPressed: () => {
                 Navigator.of(context).push(
                   ScaleRoute(
+                    page: SamplePage(),
+                  ),
+                ),
+              },
+            ),
+            FlatButton(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+                side: BorderSide(color: Colors.black38),
+              ),
+              child: Text("NavRoute"),
+              onPressed: () => {
+                Navigator.of(context).push(
+                  NavRoute(
                     page: SamplePage(),
                   ),
                 ),
