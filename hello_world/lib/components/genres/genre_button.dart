@@ -27,10 +27,11 @@ class _GenreButtonState extends State<GenreButton> {
         margin: EdgeInsets.symmetric(horizontal: 5),
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         decoration: BoxDecoration(
-            border: Border.all(
-              color: selected == true ? Colors.black : Colors.black26,
-            ),
-            borderRadius: BorderRadius.circular(20)),
+          border: Border.all(
+            color: selected == true ? Colors.black : Colors.black26,
+          ),
+          borderRadius: BorderRadius.circular(20),
+        ),
         child: Text(
           widget.genre,
           style: TextStyle(
