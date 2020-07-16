@@ -7,7 +7,7 @@ import 'package:hello_world/components/genres/genres.dart';
 
 // for testing
 import 'package:hello_world/components/etc/random_words.dart';
-import 'package:hello_world/components/etc/two_routers.dart';
+import 'package:hello_world/components/etc/router_test.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -41,7 +41,7 @@ class Body extends StatelessWidget {
               onPressed: () => {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => FirstRouter(),
+                    builder: (context) => RouterTest(),
                   ),
                 ),
               },
