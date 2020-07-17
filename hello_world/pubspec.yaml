@@ -28,10 +28,15 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
+  # 아이콘들
   english_words: ^3.1.5
+  # 영단어
   font_awesome_flutter: ^8.8.1
+  # 폰트어썸
   flutter_svg: ^0.17.4
+  # svg
   animations: ^1.1.0
+  # 애니메이션
 
 dev_dependencies:
   flutter_test:

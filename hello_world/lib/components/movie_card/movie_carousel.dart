@@ -17,7 +17,7 @@ class _MovieCarouselState extends State<MovieCarousel> {
   void initState() {
     super.initState();
     _pageController = PageController(
-      viewportFraction: 0.7,
+      viewportFraction: 0.77,
       initialPage: initialPage,
     );
   }

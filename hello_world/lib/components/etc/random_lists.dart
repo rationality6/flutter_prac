@@ -10,6 +10,8 @@ class _RandomListsState extends State<RandomLists> {
   final _suggestions = <WordPair>[];
   final _biggerFont = TextStyle(fontSize: 18.0);
 
+  final _liked = Set<WordPair>();
+
   Widget _buildSuggestions() {
     return ListView.builder(
       padding: EdgeInsets.all(16.0),
@@ -20,11 +22,26 @@ class _RandomListsState extends State<RandomLists> {
         if (index >= _suggestions.length) {
           _suggestions.addAll(generateWordPairs().take(10));
         }
+
+        final alreadySaved = _liked.contains(_suggestions[index]);
         return ListTile(
           title: Text(
             _suggestions[index].asPascalCase,
             style: _biggerFont,
           ),
+          trailing: Icon(
+            alreadySaved ? Icons.favorite : Icons.favorite_border,
+            color: alreadySaved ? Colors.red : null,
+          ),
+          onTap: () {
+            setState(() {
+              if (alreadySaved) {
+                _liked.remove(_suggestions[index]);
+              } else {
+                _liked.add(_suggestions[index]);
+              }
+            });
+          },
         );
       },
     );
