@@ -63,6 +63,10 @@ class Body extends StatelessWidget {
               },
             ),
           ),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 150),
+            child: Text("안녕로봇 안늉!"),
+          ),
         ],
       ),
     );
