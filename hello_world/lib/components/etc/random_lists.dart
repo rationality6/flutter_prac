@@ -18,7 +18,7 @@ class _RandomListsState extends State<RandomLists> {
       itemBuilder: (context, i) {
         if (i.isOdd) return Divider();
 
-        final index = i ~/ 2;
+        final index = i;
         if (index >= _suggestions.length) {
           _suggestions.addAll(generateWordPairs().take(10));
         }

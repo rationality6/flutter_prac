@@ -24,7 +24,9 @@ class CastAndCrew extends StatelessWidget {
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: casts.length,
-                itemBuilder: (context, index) => CastCard(cast: casts[index]),
+                itemBuilder: (context, index) => CastCard(
+                  cast: casts[index],
+                ),
               ),
             ),
           ],
