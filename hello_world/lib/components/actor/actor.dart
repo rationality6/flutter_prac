@@ -7,29 +7,25 @@ class Actor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
+            Column(
               children: [
-                Text("foo"),
-                Text("foo"),
-                Text("foo"),
                 Container(
+                    height: size.height,
                     decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(cast[2]),
-                  ),
-                ))
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage(cast['detail_picture']),
+                      ),
+                    ))
               ],
             ),
-            Text("foo"),
-            Text("foo"),
-            Text("foo"),
           ],
         ),
       ),
