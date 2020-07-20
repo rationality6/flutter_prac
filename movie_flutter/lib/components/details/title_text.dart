@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/models/movie_ex.dart';
+import 'package:movie_flutter/models/movie_ex.dart';
 
 class TitleText extends StatelessWidget {
   final Movie movie;

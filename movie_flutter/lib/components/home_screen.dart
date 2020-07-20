@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hello_world/components/body.dart';
-import 'package:hello_world/components/sidebar/sidebar.dart';
-import 'package:hello_world/components/etc/router_directions.dart';
+import 'package:movie_flutter/components/body.dart';
+import 'package:movie_flutter/components/sidebar/sidebar.dart';
+import 'package:movie_flutter/components/etc/router_directions.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

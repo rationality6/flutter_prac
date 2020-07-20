@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/models/side.dart';
+import 'package:movie_flutter/models/side.dart';
 
 class SideBar extends StatelessWidget {
   @override

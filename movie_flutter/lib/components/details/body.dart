@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 // models
-import 'package:hello_world/models/movie_ex.dart';
+import 'package:movie_flutter/models/movie_ex.dart';
 // components
-import 'package:hello_world/components/details/backdrop_and_rating.dart';
-import 'package:hello_world/components/details/title_text.dart';
-import 'package:hello_world/components/details/genres.dart';
-import 'package:hello_world/components/details/cast_and_crew.dart';
+import 'package:movie_flutter/components/details/backdrop_and_rating.dart';
+import 'package:movie_flutter/components/details/title_text.dart';
+import 'package:movie_flutter/components/details/genres.dart';
+import 'package:movie_flutter/components/details/cast_and_crew.dart';
 
 class Body extends StatelessWidget {
   final Movie movie;

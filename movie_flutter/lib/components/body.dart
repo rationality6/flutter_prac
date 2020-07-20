@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 // componants
-import 'package:hello_world/components/categorys/categorys.dart';
-import 'package:hello_world/components/movie_card/movie_carousel.dart';
-import 'package:hello_world/components/genres/genres.dart';
+import 'package:movie_flutter/components/categorys/categorys.dart';
+import 'package:movie_flutter/components/movie_card/movie_carousel.dart';
+import 'package:movie_flutter/components/genres/genres.dart';
 
 class Body extends StatelessWidget {
   @override

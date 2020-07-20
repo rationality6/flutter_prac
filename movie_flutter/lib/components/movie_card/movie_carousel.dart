@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/components/movie_card/movie_card.dart';
-import 'package:hello_world/models/movie_ex.dart';
+import 'package:movie_flutter/components/movie_card/movie_card.dart';
+import 'package:movie_flutter/models/movie_ex.dart';
 
 import 'dart:math' as math;
 

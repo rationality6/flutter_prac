@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/models/movie_ex.dart';
-import 'package:hello_world/components/genres/genre_button.dart';
+import 'package:movie_flutter/models/movie_ex.dart';
+import 'package:movie_flutter/components/genres/genre_button.dart';
 
 class Genres extends StatelessWidget {
   const Genres({

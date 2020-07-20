@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'package:hello_world/components/etc/sample_page.dart';
-import 'package:hello_world/components/etc/router_directions.dart';
+import 'package:movie_flutter/components/etc/sample_page.dart';
+import 'package:movie_flutter/components/etc/router_directions.dart';
 
 class RouterTest extends StatelessWidget {
   @override

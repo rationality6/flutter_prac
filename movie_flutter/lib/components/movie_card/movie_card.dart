@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 // model
-import 'package:hello_world/models/movie_ex.dart';
+import 'package:movie_flutter/models/movie_ex.dart';
 // component
-import 'package:hello_world/components/details/details.dart';
+import 'package:movie_flutter/components/details/details.dart';
 
 const kDefaultShadow = BoxShadow(
   offset: Offset(0, 4),

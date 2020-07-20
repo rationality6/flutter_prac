@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:hello_world/components/etc/router_test.dart';
-import 'package:hello_world/components/etc/random_words.dart';
-import 'package:hello_world/components/etc/random_lists.dart';
+import 'package:movie_flutter/components/etc/router_test.dart';
+import 'package:movie_flutter/components/etc/random_words.dart';
+import 'package:movie_flutter/components/etc/random_lists.dart';
 
 class Side {
   final String title;

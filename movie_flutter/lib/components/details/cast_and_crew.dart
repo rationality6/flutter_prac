@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/components/details/cast_card.dart';
+import 'package:movie_flutter/components/details/cast_card.dart';
 
 class CastAndCrew extends StatelessWidget {
   final List casts;

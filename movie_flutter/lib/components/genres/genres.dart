@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/components/genres/genre_button.dart';
+import 'package:movie_flutter/components/genres/genre_button.dart';
 
 class Genres extends StatelessWidget {
   final List<String> genres = ["액션", "범죄", "코메디", "드라마", "공포", "애니메이션"];
