@@ -28,7 +28,9 @@ class _RandomWordsState extends State<RandomWords> {
     final wordPair = WordPair.random();
 
     return Scaffold(
-      appBar: AppBar(title: Text('RandomButton')),
+      appBar: AppBar(
+        title: Text('RandomButton'),
+      ),
       body: Center(
         child: Column(
           children: [

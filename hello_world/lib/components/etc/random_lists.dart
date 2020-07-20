@@ -12,6 +12,10 @@ class _RandomListsState extends State<RandomLists> {
 
   final _liked = Set<WordPair>();
 
+  void _pushSaved() {
+    print("foobar!");
+  }
+
   Widget _buildSuggestions() {
     return ListView.builder(
       padding: EdgeInsets.all(16.0),
@@ -56,6 +60,9 @@ class _RandomListsState extends State<RandomLists> {
     return Scaffold(
       appBar: AppBar(
         title: Text("randomlists"),
+        actions: [
+          IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
+        ],
       ),
       body: Column(
         children: [

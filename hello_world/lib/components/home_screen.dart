@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hello_world/components/body.dart';
+import 'package:hello_world/components/sidebar/sidebar.dart';
+import 'package:hello_world/components/etc/router_directions.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: buildAppBar(),
+      appBar: buildAppBar(context),
       body: Body(),
     );
   }
 
-  AppBar buildAppBar() {
+  AppBar buildAppBar(context) {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
@@ -22,6 +24,13 @@ class HomeScreen extends StatelessWidget {
         icon: FaIcon(FontAwesomeIcons.bars),
         onPressed: () {
           print("pressed left");
+          Navigator.of(context).push(
+            SlideRoute(
+              page: SideBar(),
+              topDown: 0,
+              leftRight: -1,
+            ),
+          );
         },
       ),
       actions: [

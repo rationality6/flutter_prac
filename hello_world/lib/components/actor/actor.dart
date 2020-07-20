@@ -16,14 +16,20 @@ class Actor extends StatelessWidget {
           children: [
             Column(
               children: [
-                Container(
+                GestureDetector(
+                  onTap: () => {
+                    Navigator.pop(context),
+                  },
+                  child: Container(
                     height: size.height,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: AssetImage(cast['detail_picture']),
                       ),
-                    ))
+                    ),
+                  ),
+                ),
               ],
             ),
           ],

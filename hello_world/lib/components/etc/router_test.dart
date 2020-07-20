@@ -2,91 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:hello_world/components/etc/sample_page.dart';
-
-class SlideRightRoute extends PageRouteBuilder {
-  final Widget page;
-  final double topDown;
-  final double leftRight;
-  SlideRightRoute({this.page, this.topDown, this.leftRight})
-      : super(
-          pageBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-          ) =>
-              page,
-          transitionsBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-            Widget child,
-          ) =>
-              SlideTransition(
-            position: Tween<Offset>(
-              begin: new Offset(leftRight, topDown),
-              end: Offset.zero,
-            ).animate(animation),
-            child: child,
-          ),
-        );
-}
-
-class NavRoute extends PageRouteBuilder {
-  final Widget page;
-  NavRoute({this.page})
-      : super(
-          pageBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-          ) =>
-              page,
-          transitionsBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-            Widget child,
-          ) =>
-              SlideTransition(
-            position: Tween<Offset>(
-              begin: new Offset(-1, 0),
-              end: Offset(-0.2, 0),
-            ).animate(animation),
-            child: child,
-          ),
-        );
-}
-
-class ScaleRoute extends PageRouteBuilder {
-  final Widget page;
-  ScaleRoute({this.page})
-      : super(
-          pageBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-          ) =>
-              page,
-          transitionsBuilder: (
-            BuildContext context,
-            Animation<double> animation,
-            Animation<double> secondaryAnimation,
-            Widget child,
-          ) =>
-              ScaleTransition(
-            scale: Tween<double>(
-              begin: 0.0,
-              end: 1.0,
-            ).animate(
-              CurvedAnimation(
-                parent: animation,
-                curve: Curves.fastOutSlowIn,
-              ),
-            ),
-            child: child,
-          ),
-        );
-}
+import 'package:hello_world/components/etc/router_directions.dart';
 
 class RouterTest extends StatelessWidget {
   @override
@@ -121,7 +37,7 @@ class RouterTest extends StatelessWidget {
               child: Text("Right"),
               onPressed: () => {
                 Navigator.of(context).push(
-                  SlideRightRoute(
+                  SlideRoute(
                     page: SamplePage(),
                     topDown: 0,
                     leftRight: 1,
@@ -137,7 +53,7 @@ class RouterTest extends StatelessWidget {
               child: Text("left"),
               onPressed: () => {
                 Navigator.of(context).push(
-                  SlideRightRoute(
+                  SlideRoute(
                     page: SamplePage(),
                     topDown: 0,
                     leftRight: -1,
@@ -153,7 +69,7 @@ class RouterTest extends StatelessWidget {
               child: Text("Top"),
               onPressed: () => {
                 Navigator.of(context).push(
-                  SlideRightRoute(
+                  SlideRoute(
                     page: SamplePage(),
                     topDown: -1,
                     leftRight: 0,
@@ -169,7 +85,7 @@ class RouterTest extends StatelessWidget {
               child: Text("Down"),
               onPressed: () => {
                 Navigator.of(context).push(
-                  SlideRightRoute(
+                  SlideRoute(
                     page: SamplePage(),
                     topDown: 1,
                     leftRight: 0,
