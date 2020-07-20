@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demooo',
         theme: ThemeData(
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          primaryColor: Colors.white,
         ),
         home: HomeScreen());
   }
