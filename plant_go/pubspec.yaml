@@ -29,6 +29,8 @@ dependencies:
   flutter_svg: ^0.17.4
   # 애니메이션
   animations: ^1.1.0
+  # http
+  http: ^0.12.2
 
 dev_dependencies:
   flutter_test:

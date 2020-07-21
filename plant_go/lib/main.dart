@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:plant_go/components/constants.dart';
+import 'package:plant_go/components/mock_datas.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,8 +38,10 @@ class MyScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: buildAppBar(),
       body: Container(
-        child: Center(
-          child: Text("foo"),
+        child: Column(
+          children: [
+            MockDatas(),
+          ],
         ),
       ),
     );
