@@ -23,7 +23,6 @@ class HomeScreen extends StatelessWidget {
         color: Colors.black,
         icon: FaIcon(FontAwesomeIcons.bars),
         onPressed: () {
-          print("pressed left");
           Navigator.of(context).push(
             SlideRoute(
               page: SideBar(),
