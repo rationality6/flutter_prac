@@ -38,11 +38,10 @@ class _DeepDataState extends State<DeepData> {
       HttpHeaders.acceptLanguageHeader: 'kr',
       HttpHeaders.acceptCharsetHeader: 'accept-charset'
     });
-    var data = jsonDecode(response.body);
-    data = UTF8.decode(data);
-    print(response.body);
-    // return DeepNaturalFAQ.fromJson(data);
-    print(data[0]);
+    var data = utf8.decode(response.bodyBytes);
+    var data0 = jsonDecode(data);
+
+    return DeepNaturalFAQ.fromJson(data0[0]);
   }
 
   @override
