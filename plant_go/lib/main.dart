@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:plant_go/components/constants.dart';
-import 'package:plant_go/components/mock_datas.dart';
+import 'package:plant_go/components/data_comp/mock_datas.dart';
+import 'package:plant_go/components/data_comp/time_datas.dart';
 
 void main() => runApp(MyApp());
 
@@ -41,6 +42,7 @@ class MyScreen extends StatelessWidget {
         child: Column(
           children: [
             MockDatas(),
+            TimeDatas(),
           ],
         ),
       ),
