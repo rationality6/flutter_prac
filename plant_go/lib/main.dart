@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:plant_go/components/constants.dart';
 import 'package:plant_go/components/data_comp/mock_datas.dart';
 import 'package:plant_go/components/data_comp/time_datas.dart';
+import 'package:plant_go/components/data_comp/dart_loading.dart';
+import 'package:plant_go/components/data_comp/deep_data.dart';
 
 void main() => runApp(MyApp());
 
@@ -43,6 +45,8 @@ class MyScreen extends StatelessWidget {
           children: [
             MockDatas(),
             TimeDatas(),
+            DartLoading(),
+            DeepData(),
           ],
         ),
       ),

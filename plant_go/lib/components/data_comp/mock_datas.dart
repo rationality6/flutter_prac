@@ -3,33 +3,36 @@ import 'package:http/http.dart';
 import 'dart:convert';
 
 class MockDatas extends StatefulWidget {
-  // final Map _todos = {};
-
   @override
   _MockDatasState createState() => _MockDatasState();
 }
 
 class _MockDatasState extends State<MockDatas> {
   String url = 'https://jsonplaceholder.typicode.com/todos/1';
+  String _todos;
 
-  getData() async {
+  Future<String> getData() async {
     Response response = await get(url);
     Map data = jsonDecode(response.body);
-    return data;
+    print(data['title']);
+    return data['title'];
   }
 
   @override
   void initState() {
     super.initState();
+
+    // _todos = await getData();
+
     setState(() {
-      // final _todos = getData();
+      // _todos = await getData();
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        // child: Text("${_todos}"),
-        );
+      child: Text("$_todos"),
+    );
   }
 }

@@ -17,7 +17,7 @@ class _TimeDatasState extends State<TimeDatas> {
     await instance.getTime();
     print(instance.time);
     setState(() {
-      _foobar = instance.time.toString();
+      _foobar = instance.time;
     });
   }
 
