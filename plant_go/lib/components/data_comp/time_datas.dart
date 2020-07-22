@@ -7,13 +7,18 @@ class TimeDatas extends StatefulWidget {
 }
 
 class _TimeDatasState extends State<TimeDatas> {
-  void setupWorldTime() {
+  String _foobar;
+  void setupWorldTime() async {
     WorldTime instance = WorldTime(
       location: 'Seoul',
       url: 'Asia/Seoul',
       flag: "germany.png",
     );
-    instance.getTime();
+    await instance.getTime();
+    print(instance.time);
+    setState(() {
+      _foobar = instance.time.toString();
+    });
   }
 
   @override
@@ -25,7 +30,7 @@ class _TimeDatasState extends State<TimeDatas> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("foo"),
+      child: Text("$_foobar"),
     );
   }
 }
