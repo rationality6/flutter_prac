@@ -1,8 +1,8 @@
-class Customer {
+class Cat {
   String name;
   int age;
 
-  Customer({this.name, this.age});
+  Cat({this.name, this.age});
 
   @override
   String toString() {
@@ -11,14 +11,12 @@ class Customer {
 }
 
 main() {
-  List<Customer> customers = [];
-  customers.add(Customer(name: '후밍', age: 33));
-  customers.add(Customer(name: '미유', age: 31));
-  customers.add(Customer(name: '까미', age: 30));
+  List<Cat> customers = [];
+  customers.add(Cat(name: '후밍', age: 33));
+  customers.add(Cat(name: '미유', age: 31));
+  customers.add(Cat(name: '까미', age: 30));
 
-  print(customers);
-  print(customers.length);
-  print(customers[0]);
-  print(customers[1]);
-  print(customers[2]);
+  for (var cat in customers) {
+    print(cat);
+  }
 }
