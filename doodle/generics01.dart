@@ -18,6 +18,7 @@ void main() {
   var circleSlot0 = new CircleSlot();
   circleSlot0.insert(new Circle());
   var squareSlot = SquareSlot();
+  print(squareSlot);
   // got an error
   // squareSlot.insert(new Circle());
 }

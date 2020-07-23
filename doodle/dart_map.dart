@@ -8,8 +8,10 @@ String returnInterpolationString(int aNumber) {
 
 void doodle0() {
   const List<int> array_numbers0 = [1, 2, 3];
+  print(array_numbers0);
 
   var foo = const [];
+  print(foo);
   const Object i = '9';
   // const List<int> list = [i as int];
   // print(list);

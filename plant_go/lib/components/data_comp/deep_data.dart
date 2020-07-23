@@ -32,7 +32,9 @@ class DeepNaturalFAQ {
 }
 
 class _DeepDataState extends State<DeepData> {
-  Future getData() async {
+  Future<DeepNaturalFAQ> _faqs;
+
+  void getData() async {
     var endpoint = "https://api.deepnatural.ai/faq/";
     Response response = await get(endpoint, headers: {
       HttpHeaders.acceptLanguageHeader: 'kr',
@@ -40,21 +42,28 @@ class _DeepDataState extends State<DeepData> {
     });
     var data = utf8.decode(response.bodyBytes);
     var data0 = jsonDecode(data);
-
-    return DeepNaturalFAQ.fromJson(data0[0]);
+    print(data0);
+    // return DeepNaturalFAQ.fromJson(data0[0]);
   }
 
   @override
   void initState() {
     super.initState();
     getData();
+    // _faqs = await getData();
+    // print(_faqs);
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        children: <Widget>[],
+        children: [
+          // ListView.builder(
+          //   itemCount: _faqs.length,
+          //   itemBuilder: (context, index) => Text("foo"),
+          // )
+        ],
       ),
     );
   }

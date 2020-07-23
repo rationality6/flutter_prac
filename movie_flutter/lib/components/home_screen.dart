@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
       elevation: 0,
       leading: IconButton(
         // padding: EdgeInsets.symmetric(horizontal: 20),
-        color: Colors.black,
+        // color: Colors.black,
         icon: FaIcon(FontAwesomeIcons.bars),
         onPressed: () {
           Navigator.of(context).push(
