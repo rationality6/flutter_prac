@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class MemoPost {
   final int id;
   final String title;
@@ -35,7 +37,9 @@ void _generateList(int count) {
 
 main() {
   _generateList(5);
+  var key = '3';
   print(_memoPosts);
-  print(_memoPosts
-      .where((element) => element.contents.toLowerCase().contains('foo')));
+  print(_memoPosts.where((element) =>
+      element.title.toLowerCase().contains(key) ||
+      element.contents.toLowerCase().contains(key)));
 }
