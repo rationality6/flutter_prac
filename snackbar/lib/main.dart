@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() => runApp(MyApp());
 
@@ -64,22 +65,24 @@ class _MyHomePageState extends State<MyHomePage> {
         return AlertDialog(
           title: Row(
             children: [
+              MySnackBar(ctx),
               Text("hello wolrd"),
               FlatButton(
                 child: Text("click me"),
                 onPressed: () {
-                  Scaffold.of(ctx).showSnackBar(
-                    SnackBar(
-                      duration: Duration(microseconds: 1),
-                      content: Text("Hello_world"),
-                      action: SnackBarAction(
-                        label: 'Action!',
-                        onPressed: () {
-                          // Some code to undo the change.
-                        },
-                      ),
-                    ),
-                  );
+                  // Scaffold.of(ctx).showSnackBar(
+                  //   SnackBar(
+                  //     duration: Duration(microseconds: 1),
+                  //     content: Text("Hello_world"),
+                  //     action: SnackBarAction(
+                  //       label: 'Action!',
+                  //       onPressed: () {
+                  //         // Some code to undo the change.
+                  //       },
+                  //     ),
+                  //   ),
+                  // );
+                  flutterToast();
                 },
               ),
             ],
@@ -110,17 +113,18 @@ class _MyHomePageState extends State<MyHomePage> {
             FlatButton(
               child: Text("snack_bar"),
               onPressed: () {
-                Scaffold.of(ctx).showSnackBar(
-                  SnackBar(
-                    duration: Duration(microseconds: 1),
-                    content: Text("Hello_world"),
-                  ),
-                );
+                // Scaffold.of(ctx).showSnackBar(
+                //   SnackBar(
+                //     duration: Duration(microseconds: 1),
+                //     content: Text("Hello_world"),
+                //   ),
+                // );
 
-                // postAlert(context, ctx);
+                postAlert(context, ctx);
               },
               color: Colors.black45,
             ),
+            MySnackBar(ctx),
             Text(
               'You have pushed the button this many times:',
             ),
@@ -128,6 +132,12 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            FlatButton(
+              child: Text("toast"),
+              onPressed: () {
+                flutterToast();
+              },
+            )
           ],
         );
       })),
@@ -138,4 +148,49 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+
+class MySnackBar extends StatefulWidget {
+  final ctx;
+
+  MySnackBar(this.ctx);
+
+  @override
+  _MySnackBarState createState() => _MySnackBarState();
+}
+
+class _MySnackBarState extends State<MySnackBar> {
+  @override
+  Widget build(BuildContext ctx) {
+    return Container(
+      child: FlatButton(
+        child: Text("click me"),
+        onPressed: () {
+          Scaffold.of(widget.ctx).showSnackBar(
+            SnackBar(
+              duration: Duration(microseconds: 1),
+              content: Text("Hello_world"),
+              action: SnackBarAction(
+                label: 'Action!',
+                onPressed: () {
+                  // Some code to undo the change.
+                },
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+void flutterToast() {
+  Fluttertoast.showToast(
+    msg: 'flutter!',
+    gravity: ToastGravity.BOTTOM,
+    backgroundColor: Colors.redAccent,
+    fontSize: 20,
+    textColor: Colors.white,
+    toastLength: Toast.LENGTH_SHORT,
+  );
 }
