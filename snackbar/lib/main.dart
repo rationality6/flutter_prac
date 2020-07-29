@@ -106,41 +106,87 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(child: Builder(builder: (BuildContext ctx) {
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            FlatButton(
-              child: Text("snack_bar"),
-              onPressed: () {
-                // Scaffold.of(ctx).showSnackBar(
-                //   SnackBar(
-                //     duration: Duration(microseconds: 1),
-                //     content: Text("Hello_world"),
-                //   ),
-                // );
+      body: SingleChildScrollView(
+        child: Center(
+          child: Builder(
+            builder: (BuildContext ctx) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FlatButton(
+                    child: Text("snack_bar"),
+                    onPressed: () {
+                      // Scaffold.of(ctx).showSnackBar(
+                      //   SnackBar(
+                      //     duration: Duration(microseconds: 1),
+                      //     content: Text("Hello_world"),
+                      //   ),
+                      // );
 
-                postAlert(context, ctx);
-              },
-              color: Colors.black45,
-            ),
-            MySnackBar(ctx),
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-            FlatButton(
-              child: Text("toast"),
-              onPressed: () {
-                flutterToast();
-              },
-            )
-          ],
-        );
-      })),
+                      postAlert(context, ctx);
+                    },
+                    color: Colors.black45,
+                  ),
+                  MySnackBar(ctx),
+                  Text(
+                    'You have pushed the button this many times:',
+                  ),
+                  Text(
+                    '$_counter',
+                    style: Theme.of(context).textTheme.display1,
+                  ),
+                  FlatButton(
+                    child: Text("toast"),
+                    onPressed: () {
+                      flutterToast();
+                    },
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    margin: EdgeInsets.symmetric(
+                      vertical: 50,
+                      horizontal: 10,
+                    ),
+                    padding: EdgeInsets.all(40),
+                    child: Text("foo"),
+                    color: Colors.red,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Container(
+                        height: 100,
+                        color: Colors.blue,
+                        child: Text("con0"),
+                      ),
+                      Container(
+                        height: 100,
+                        color: Colors.yellow,
+                        child: Text("con1"),
+                      ),
+                      Container(
+                        height: 100,
+                        color: Colors.red,
+                        child: Text("con2"),
+                      ),
+                      Container(
+                        height: 100,
+                        color: Colors.green,
+                        child: Text("con3"),
+                      ),
+                      // Container(
+                      // width: double.infinity,
+                      // height: double.infinity,
+                      // )
+                    ],
+                  )
+                ],
+              );
+            },
+          ),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
