@@ -70,16 +70,24 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
+      height: size.height * 0.1,
       child: Stack(
         children: [
           Container(
-            height: size.height * 0.2 - 27,
+            height: size.height * 0.1 - 27,
             decoration: BoxDecoration(
               color: kPC,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(36),
                 bottomRight: Radius.circular(36),
               ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("foobar"),
+              ],
             ),
           ),
           Positioned(
