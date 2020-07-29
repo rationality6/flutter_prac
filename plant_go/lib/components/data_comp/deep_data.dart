@@ -20,38 +20,36 @@ class DeepNaturalFAQ {
     this.question,
     this.answer,
   });
-
-  factory DeepNaturalFAQ.fromJson(Map<String, dynamic> json) {
-    return DeepNaturalFAQ(
-      category: json['category'],
-      id: json['id'],
-      answer: json['answer'],
-      question: json['question'],
-    );
-  }
 }
 
 class _DeepDataState extends State<DeepData> {
-  Future<DeepNaturalFAQ> _faqs;
-
-  void getData() async {
-    var endpoint = "https://api.deepnatural.ai/faq/";
+  Future<List<dynamic>> _getData() async {
+    var result = [];
+    const endpoint = "https://api.deepnatural.ai/faq/";
     Response response = await get(endpoint, headers: {
       HttpHeaders.acceptLanguageHeader: 'kr',
       HttpHeaders.acceptCharsetHeader: 'accept-charset'
     });
-    var data = utf8.decode(response.bodyBytes);
-    var data0 = jsonDecode(data);
-    print(data0);
-    // return DeepNaturalFAQ.fromJson(data0[0]);
+    final responseDecode = utf8.decode(response.bodyBytes);
+    var datas = jsonDecode(responseDecode);
+    for (var data in datas) {
+      DeepNaturalFAQ faq = DeepNaturalFAQ(
+        category: data['category'],
+        id: data['id'],
+        question: data['question'],
+        answer: data['answer'],
+      );
+      result.add(faq);
+    }
+    print(result[0]);
+    return result;
   }
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
-    getData();
-    // _faqs = await getData();
-    // print(_faqs);
+    _getData();
   }
 
   @override
@@ -59,10 +57,22 @@ class _DeepDataState extends State<DeepData> {
     return Container(
       child: Column(
         children: [
-          // ListView.builder(
-          //   itemCount: _faqs.length,
-          //   itemBuilder: (context, index) => Text("foo"),
-          // )
+          FutureBuilder(
+            future: _getData(),
+            builder: (context, snapshot) {
+              return SizedBox(
+                height: 400,
+                child: ListView.builder(
+                  itemCount: snapshot.data.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text("${snapshot.data[index].category}"),
+                    );
+                  },
+                ),
+              );
+            },
+          )
         ],
       ),
     );
