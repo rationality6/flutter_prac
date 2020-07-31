@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:plant_go/components/constants.dart';
-import 'package:plant_go/components/data_comp/mock_datas.dart';
-import 'package:plant_go/components/data_comp/time_datas.dart';
-import 'package:plant_go/components/data_comp/dart_loading.dart';
-import 'package:plant_go/components/data_comp/deep_data.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 void main() => runApp(MyApp());
@@ -18,6 +14,8 @@ class MyApp extends StatelessWidget {
       title: 'plant go',
       theme: ThemeData(
         primaryColor: kPC,
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTC),
+        // visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyScreen(),
     );
@@ -32,10 +30,10 @@ class MyScreen extends StatefulWidget {
 class _MyScreenState extends State<MyScreen> {
   AppBar buildAppBar() => AppBar(
         leading: IconButton(
-          icon: SvgPicture.asset("assets/icons/menu.svg"),
-          onPressed: () {
-            print("menu buttonpressed!");
-          },
+          icon: SvgPicture.asset(
+            "assets/icons/menu.svg",
+          ),
+          onPressed: () {},
         ),
         elevation: 0,
       );
@@ -74,6 +72,7 @@ class _BodyState extends State<Body> {
       child: Stack(
         children: [
           Container(
+            padding: EdgeInsets.only(left: kDP),
             height: size.height * 0.1 - 27,
             decoration: BoxDecoration(
               color: kPC,
@@ -83,10 +82,46 @@ class _BodyState extends State<Body> {
               ),
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("foobar"),
+                Container(
+                  height: 50,
+                  width: size.width - 40,
+                  padding: EdgeInsets.only(bottom: 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Hi Foobar",
+                        style: TextStyle(
+                          fontSize: 26,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Image.asset(
+                        'assets/images/logo.png',
+                        width: 50.0,
+                        height: 50.0,
+                      )
+                    ],
+                  ),
+                ),
+                // Text(
+                //   "Hi Foobar",
+                //   style: TextStyle(
+                //     fontSize: 22,
+                //     color: Colors.white,
+                //     fontWeight: FontWeight.bold,
+                //   ),
+                // ),
+                // Spacer(),
+                // Image.asset(
+                //   'assets/images/logo.png',
+                //   width: 40.0,
+                //   height: 40.0,
+                // )
               ],
             ),
           ),
