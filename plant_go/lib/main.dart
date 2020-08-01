@@ -11,8 +11,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => Counter(2),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => Counter(2)),
+        ChangeNotifierProvider(create: (_) => User('foo', 'secret')),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'plant go',
@@ -250,5 +253,28 @@ class Counter with ChangeNotifier {
   void decrement() {
     _counter -= 1;
     notifyListeners();
+  }
+}
+
+class User with ChangeNotifier {
+  String _name;
+  String _password;
+
+  User(
+    this._name,
+    this._password,
+  );
+
+  getUserName() {
+    return _name;
+  }
+
+  getPassword() {
+    return _password;
+  }
+
+  void changeInfo(String name, String password) {
+    _name = name;
+    _password = password;
   }
 }
