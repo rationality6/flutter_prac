@@ -3,6 +3,7 @@ import 'package:plant_go/components/constants.dart';
 import 'package:plant_go/components/header.dart';
 import 'package:plant_go/components/appbar.dart';
 import 'package:plant_go/components/title_custom.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,16 +11,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'plant go',
-      theme: ThemeData(
-        primaryColor: kPC,
-        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTC),
-        // visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyScreen(),
-    );
+    return Provider<int>.value(
+        value: 5,
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'plant go',
+          theme: ThemeData(
+            primaryColor: kPC,
+            textTheme: Theme.of(context).textTheme.apply(bodyColor: kTC),
+            // visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          home: MyScreen(),
+        ));
   }
 }
 
@@ -83,27 +86,69 @@ class _BodyState extends State<Body> {
               ],
             ),
           ),
+          SizedBox(
+            height: 15,
+          ),
           Container(
-              width: size.width * 0.4,
-              child: Column(
-                children: <Widget>[
-                  Image.asset('assets/images/image_1.png'),
-                  Container(
-                    padding: EdgeInsets.all(kDP / 2),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0, 10),
-                          blurRadius: 50,
-                          color: kPC.withOpacity(0.23),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              )),
+            margin: EdgeInsets.only(
+              left: kDP,
+              top: kDP / 2,
+              bottom: kDP * 2.5,
+            ),
+            width: size.width * 0.4,
+            child: Column(
+              children: <Widget>[
+                Image.asset('assets/images/image_1.png'),
+                Container(
+                  padding: EdgeInsets.all(kDP / 2),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0, 10),
+                        blurRadius: 50,
+                        color: kPC.withOpacity(0.23),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      RichText(
+                        text: TextSpan(children: []),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          FlatButton(
+            child: Text("foo"),
+            color: Colors.green,
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => SimplePage(),
+                ),
+              );
+            },
+          )
         ],
+      ),
+    );
+  }
+}
+
+class SimplePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var data = Provider.of<int>(context); // 가까운 Provider로부터 값을 가져옵니다.
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Simple app'),
+      ),
+      body: Center(
+        child: Text('$data'), // 값이 표시됩니다 (여기서는 5)
       ),
     );
   }

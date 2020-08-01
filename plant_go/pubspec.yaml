@@ -31,6 +31,7 @@ dependencies:
   animations: ^1.1.0
   # http
   http: ^0.12.2
+  provider: ^3.0.0+1
 
 dev_dependencies:
   flutter_test:
