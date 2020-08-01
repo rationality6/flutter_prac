@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => Counter(1),
+      create: (context) => Counter(2),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'plant go',
@@ -60,6 +60,8 @@ class _BodyState extends State<Body> {
 
     double appbarmaxheight = Scaffold.of(context).appBarMaxHeight;
     print(appbarmaxheight);
+
+    var counterProvider = Provider.of<Counter>(context);
     return Container(
       child: Column(
         children: [
@@ -124,7 +126,7 @@ class _BodyState extends State<Body> {
             ),
           ),
           FlatButton(
-            child: Text("foo"),
+            child: Text("first_provider_page"),
             color: Colors.green,
             onPressed: () {
               Navigator.of(context).push(
@@ -133,7 +135,33 @@ class _BodyState extends State<Body> {
                 ),
               );
             },
-          )
+          ),
+          FlatButton(
+            child: Text("second_provider_page"),
+            color: Colors.green,
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => SimpleProviderPageTwo(),
+                ),
+              );
+            },
+          ),
+          Text("${counterProvider.getCounter()}"),
+          FlatButton(
+            child: Text("count+"),
+            color: Colors.green,
+            onPressed: () {
+              counterProvider.increment();
+            },
+          ),
+          FlatButton(
+            child: Text("count-"),
+            color: Colors.green,
+            onPressed: () {
+              counterProvider.decrement();
+            },
+          ),
         ],
       ),
     );
@@ -143,13 +171,64 @@ class _BodyState extends State<Body> {
 class SimpleProviderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var data = Provider.of<Counter>(context); // 가까운 Provider로부터 값을 가져옵니다.
+    var counterProvider = Provider.of<Counter>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Simple app'),
+        title: Text('SimpleProviderPage'),
       ),
       body: Center(
-        child: Text('${data.getCounter()}'), // 값이 표시됩니다 (여기서는 5)
+        child: Column(
+          children: <Widget>[
+            Text('${counterProvider.getCounter()}'),
+            FlatButton(
+              child: Text("count+"),
+              color: Colors.green,
+              onPressed: () {
+                counterProvider.increment();
+              },
+            ),
+            FlatButton(
+              child: Text("count-"),
+              color: Colors.green,
+              onPressed: () {
+                counterProvider.decrement();
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SimpleProviderPageTwo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var counterProvider = Provider.of<Counter>(context);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('SimpleProviderPageTwo'),
+      ),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            Text('${counterProvider.getCounter()}'),
+            FlatButton(
+              child: Text("count+"),
+              color: Colors.green,
+              onPressed: () {
+                counterProvider.increment();
+              },
+            ),
+            FlatButton(
+              child: Text("count-"),
+              color: Colors.green,
+              onPressed: () {
+                counterProvider.decrement();
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
