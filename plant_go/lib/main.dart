@@ -11,18 +11,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Provider<int>.value(
-        value: 5,
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'plant go',
-          theme: ThemeData(
-            primaryColor: kPC,
-            textTheme: Theme.of(context).textTheme.apply(bodyColor: kTC),
-            // visualDensity: VisualDensity.adaptivePlatformDensity,
-          ),
-          home: MyScreen(),
-        ));
+    return ChangeNotifierProvider(
+      create: (_) => Counter(1),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'plant go',
+        theme: ThemeData(
+          primaryColor: kPC,
+          textTheme: Theme.of(context).textTheme.apply(bodyColor: kTC),
+          // visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: MyScreen(),
+      ),
+    );
   }
 }
 
@@ -128,7 +129,7 @@ class _BodyState extends State<Body> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => SimplePage(),
+                  builder: (context) => SimpleProviderPage(),
                 ),
               );
             },
@@ -139,17 +140,36 @@ class _BodyState extends State<Body> {
   }
 }
 
-class SimplePage extends StatelessWidget {
+class SimpleProviderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var data = Provider.of<int>(context); // 가까운 Provider로부터 값을 가져옵니다.
+    var data = Provider.of<Counter>(context); // 가까운 Provider로부터 값을 가져옵니다.
     return Scaffold(
       appBar: AppBar(
         title: Text('Simple app'),
       ),
       body: Center(
-        child: Text('$data'), // 값이 표시됩니다 (여기서는 5)
+        child: Text('${data.getCounter()}'), // 값이 표시됩니다 (여기서는 5)
       ),
     );
+  }
+}
+
+class Counter with ChangeNotifier {
+  int _counter;
+
+  Counter(this._counter);
+
+  getCounter() => _counter;
+  setCounter(int counter) => _counter = counter;
+
+  void increment() {
+    _counter += 1;
+    notifyListeners();
+  }
+
+  void decrement() {
+    _counter -= 1;
+    notifyListeners();
   }
 }
