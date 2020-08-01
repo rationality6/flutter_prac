@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:plant_go/components/constants.dart';
 
 class TitleCustom extends StatelessWidget {
-  final text;
-  TitleCustom(this.text);
+  final Function press;
+  final String text;
+
+  TitleCustom({Key key, this.text, this.press}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

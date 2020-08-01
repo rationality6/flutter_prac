@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:plant_go/components/constants.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plant_go/components/header.dart';
-
+import 'package:plant_go/components/appbar.dart';
 import 'package:plant_go/components/title_custom.dart';
 
 void main() => runApp(MyApp());
@@ -25,27 +23,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyScreen extends StatefulWidget {
-  @override
-  _MyScreenState createState() => _MyScreenState();
-}
-
-class _MyScreenState extends State<MyScreen> {
-  AppBar buildAppBar() => AppBar(
-        leading: IconButton(
-          icon: SvgPicture.asset(
-            "assets/icons/menu.svg",
-          ),
-          onPressed: () {},
-        ),
-        elevation: 0,
-      );
-
+class MyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: buildAppBar(),
+      appBar: appBarMain(),
       body: Container(
         child: Column(
           children: [
@@ -66,6 +49,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     double height = MediaQuery.of(context).size.height;
     var padding = MediaQuery.of(context).padding;
     double newheight = height - padding.top - padding.bottom;
@@ -75,14 +59,50 @@ class _BodyState extends State<Body> {
     return Container(
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              TitleCustom("Recommended"),
-              Spacer(),
-              TitleCustom("Recommended"),
-            ],
-          )
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 22),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                TitleCustom(
+                  text: "Recommended",
+                  press: () {},
+                ),
+                Spacer(),
+                FlatButton(
+                  color: kPC,
+                  onPressed: () {},
+                  child: Text(
+                    "More",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+              width: size.width * 0.4,
+              child: Column(
+                children: <Widget>[
+                  Image.asset('assets/images/image_1.png'),
+                  Container(
+                    padding: EdgeInsets.all(kDP / 2),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0, 10),
+                          blurRadius: 50,
+                          color: kPC.withOpacity(0.23),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              )),
         ],
       ),
     );
