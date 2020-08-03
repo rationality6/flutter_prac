@@ -128,6 +128,38 @@ class _BodyState extends State<Body> {
               ],
             ),
           ),
+          TextFormField(
+            // The validator receives the text that the user has entered.
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            onChanged: (text) {},
+          ),
+          TextFormField(
+            // The validator receives the text that the user has entered.
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+          ),
+          RaisedButton(
+            onPressed: () {
+              // Validate returns true if the form is valid, otherwise false.
+              if (_formKey.currentState.validate()) {
+                // If the form is valid, display a snackbar. In the real world,
+                // you'd often call a server or save the information in a database.
+
+                Scaffold.of(context)
+                    .showSnackBar(SnackBar(content: Text('Processing Data')));
+              }
+            },
+            child: Text('Submit'),
+          ),
           FlatButton(
             child: Text("first_provider_page"),
             color: Colors.green,

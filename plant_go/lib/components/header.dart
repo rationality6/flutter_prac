@@ -34,7 +34,7 @@ class Header extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Hi Foobar",
+                        "안녕 코방",
                         style: TextStyle(
                           fontSize: 26,
                           color: Colors.white,
