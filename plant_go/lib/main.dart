@@ -276,5 +276,6 @@ class User with ChangeNotifier {
   void changeInfo(String name, String password) {
     _name = name;
     _password = password;
+    notifyListeners();
   }
 }
