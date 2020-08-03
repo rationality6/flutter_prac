@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:plant_go/components/constants.dart';
-import 'package:plant_go/components/header.dart';
-import 'package:plant_go/components/appbar.dart';
 import 'package:plant_go/components/title_custom.dart';
 import 'package:provider/provider.dart';
+
+// scaffolds
+import 'package:plant_go/components/header.dart';
+import 'package:plant_go/components/appbar.dart';
+
+// components
+import 'package:plant_go/components/form_test_page.dart';
+
+// models
+import 'package:plant_go/components/constants.dart';
+import 'package:plant_go/models/counter.dart';
+import 'package:plant_go/models/user.dart';
 
 void main() => runApp(MyApp());
 
@@ -40,7 +49,8 @@ class MyScreen extends StatelessWidget {
         child: Column(
           children: [
             Header(),
-            Body(),
+            // Body(),
+            FormTestPage(),
           ],
         ),
       ),
@@ -60,11 +70,11 @@ class _BodyState extends State<Body> {
     double height = MediaQuery.of(context).size.height;
     var padding = MediaQuery.of(context).padding;
     double newheight = height - padding.top - padding.bottom;
+    print(newheight);
 
     double appbarmaxheight = Scaffold.of(context).appBarMaxHeight;
     print(appbarmaxheight);
 
-    var counterProvider = Provider.of<Counter>(context);
     return Container(
       child: Column(
         children: [
@@ -128,186 +138,8 @@ class _BodyState extends State<Body> {
               ],
             ),
           ),
-          TextFormField(
-            // The validator receives the text that the user has entered.
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-            onChanged: (text) {},
-          ),
-          TextFormField(
-            // The validator receives the text that the user has entered.
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
-          RaisedButton(
-            onPressed: () {
-              // Validate returns true if the form is valid, otherwise false.
-              if (_formKey.currentState.validate()) {
-                // If the form is valid, display a snackbar. In the real world,
-                // you'd often call a server or save the information in a database.
-
-                Scaffold.of(context)
-                    .showSnackBar(SnackBar(content: Text('Processing Data')));
-              }
-            },
-            child: Text('Submit'),
-          ),
-          FlatButton(
-            child: Text("first_provider_page"),
-            color: Colors.green,
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => SimpleProviderPage(),
-                ),
-              );
-            },
-          ),
-          FlatButton(
-            child: Text("second_provider_page"),
-            color: Colors.green,
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => SimpleProviderPageTwo(),
-                ),
-              );
-            },
-          ),
-          Text("${counterProvider.getCounter()}"),
-          FlatButton(
-            child: Text("count+"),
-            color: Colors.green,
-            onPressed: () {
-              counterProvider.increment();
-            },
-          ),
-          FlatButton(
-            child: Text("count-"),
-            color: Colors.green,
-            onPressed: () {
-              counterProvider.decrement();
-            },
-          ),
         ],
       ),
     );
-  }
-}
-
-class SimpleProviderPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    var counterProvider = Provider.of<Counter>(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('SimpleProviderPage'),
-      ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Text('${counterProvider.getCounter()}'),
-            FlatButton(
-              child: Text("count+"),
-              color: Colors.green,
-              onPressed: () {
-                counterProvider.increment();
-              },
-            ),
-            FlatButton(
-              child: Text("count-"),
-              color: Colors.green,
-              onPressed: () {
-                counterProvider.decrement();
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class SimpleProviderPageTwo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    var counterProvider = Provider.of<Counter>(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('SimpleProviderPageTwo'),
-      ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Text('${counterProvider.getCounter()}'),
-            FlatButton(
-              child: Text("count+"),
-              color: Colors.green,
-              onPressed: () {
-                counterProvider.increment();
-              },
-            ),
-            FlatButton(
-              child: Text("count-"),
-              color: Colors.green,
-              onPressed: () {
-                counterProvider.decrement();
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Counter with ChangeNotifier {
-  int _counter;
-
-  Counter(this._counter);
-
-  getCounter() => _counter;
-  setCounter(int counter) => _counter = counter;
-
-  void increment() {
-    _counter += 1;
-    notifyListeners();
-  }
-
-  void decrement() {
-    _counter -= 1;
-    notifyListeners();
-  }
-}
-
-class User with ChangeNotifier {
-  String _name;
-  String _password;
-
-  User(
-    this._name,
-    this._password,
-  );
-
-  getUserName() {
-    return _name;
-  }
-
-  getPassword() {
-    return _password;
-  }
-
-  void changeInfo(String name, String password) {
-    _name = name;
-    _password = password;
-    notifyListeners();
   }
 }
