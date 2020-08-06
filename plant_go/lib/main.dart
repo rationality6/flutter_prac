@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => Counter(2)),
-        ChangeNotifierProvider(create: (_) => User('foo', 'secret')),
+        ChangeNotifierProvider(create: (_) => User('', '')),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
