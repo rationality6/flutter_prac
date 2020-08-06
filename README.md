@@ -1,3 +1,3 @@
-# plutter_prac
+# flutter_prac
 
 ![one screenshot](/screenshot/ss.png)
