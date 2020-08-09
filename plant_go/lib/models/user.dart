@@ -1,25 +1,42 @@
 import 'package:flutter/material.dart';
 
 class User with ChangeNotifier {
-  String _name;
-  String _password;
+  String name;
+  String password;
 
-  User(
-    this._name,
-    this._password,
-  );
+  User({
+    this.name,
+    this.password,
+  });
 
   getUserName() {
-    return _name;
+    return name;
   }
 
   getPassword() {
-    return _password;
+    return password;
   }
 
   void changeInfo(String name, String password) {
-    _name = name;
-    _password = password;
+    name = name;
+    password = password;
     notifyListeners();
   }
+}
+
+class Users with ChangeNotifier {
+  List<User> users;
+
+  List<User> getUserList() => users;
+
+  updateUserList(name, password) {
+    users.add(
+      User(
+        name: name,
+        password: password,
+      ),
+    );
+  }
+
+  notifyListeners();
 }

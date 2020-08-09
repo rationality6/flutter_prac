@@ -18,7 +18,7 @@ class _FormTestPageState extends State<FormTestPage> {
     return Column(
       children: <Widget>[
         Container(
-          child: Text("foo"),
+          child: Text("foooo"),
           padding: EdgeInsets.symmetric(horizontal: 20),
         ),
         Form(

@@ -7,7 +7,7 @@ import 'package:plant_go/components/header.dart';
 import 'package:plant_go/components/appbar.dart';
 
 // components
-import 'package:plant_go/components/form_test_page.dart';
+// import 'package:plant_go/components/form_test_page.dart';
 
 // models
 import 'package:plant_go/components/constants.dart';
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => Counter(2)),
-        ChangeNotifierProvider(create: (_) => User('', '')),
+        ChangeNotifierProvider(create: (_) => Users()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: kPC,
           textTheme: Theme.of(context).textTheme.apply(bodyColor: kTC),
-          // visualDensity: VisualDensity.adaptivePlatformDensity,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: MyScreen(),
       ),
@@ -49,8 +49,8 @@ class MyScreen extends StatelessWidget {
         child: Column(
           children: [
             Header(),
-            // Body(),
-            FormTestPage(),
+            Body(),
+            // FormTestPage(),
           ],
         ),
       ),
@@ -58,12 +58,7 @@ class MyScreen extends StatelessWidget {
   }
 }
 
-class Body extends StatefulWidget {
-  @override
-  _BodyState createState() => _BodyState();
-}
-
-class _BodyState extends State<Body> {
+class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -130,8 +125,24 @@ class _BodyState extends State<Body> {
                   child: Row(
                     children: [
                       RichText(
-                        text: TextSpan(children: []),
-                      )
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text: "Samantha\n".toUpperCase(),
+                            style: Theme.of(context).textTheme.button,
+                          ),
+                          TextSpan(
+                              text: 'Russia',
+                              style: TextStyle(color: kPC.withOpacity(0.5))),
+                        ]),
+                      ),
+                      Spacer(),
+                      Text(
+                        '\$440',
+                        style: Theme.of(context)
+                            .textTheme
+                            .button
+                            .copyWith(color: kPC),
+                      ),
                     ],
                   ),
                 )
