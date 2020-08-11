@@ -1,6 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:plant_go/components/constants.dart';
 
+class TitleCustomWithButton extends StatelessWidget {
+  TitleCustomWithButton({Key key, this.text});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 22),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          TitleCustom(
+            text: text,
+            press: () {},
+          ),
+          Spacer(),
+          FlatButton(
+            color: kPC,
+            onPressed: () {},
+            child: Text(
+              "More",
+              style: TextStyle(color: Colors.white),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class TitleCustom extends StatelessWidget {
   final Function press;
   final String text;

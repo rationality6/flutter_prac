@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plant_go/components/title_custom.dart';
+import 'package:plant_go/components/%20title/title_custom.dart';
 import 'package:provider/provider.dart';
 
 // scaffolds
@@ -8,6 +8,7 @@ import 'package:plant_go/components/appbar.dart';
 
 // components
 // import 'package:plant_go/components/form_test_page.dart';
+import 'package:plant_go/components/recommend_plant_card/recommend_plant_cards.dart';
 
 // models
 import 'package:plant_go/components/constants.dart';
@@ -73,82 +74,9 @@ class Body extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 22),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                TitleCustom(
-                  text: "Recommended",
-                  press: () {},
-                ),
-                Spacer(),
-                FlatButton(
-                  color: kPC,
-                  onPressed: () {},
-                  child: Text(
-                    "More",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          Container(
-            margin: EdgeInsets.only(
-              left: kDP,
-              top: kDP / 2,
-              bottom: kDP * 2.5,
-            ),
-            width: size.width * 0.4,
-            child: Column(
-              children: <Widget>[
-                Image.asset('assets/images/image_1.png'),
-                Container(
-                  padding: EdgeInsets.all(kDP / 2),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0, 10),
-                        blurRadius: 50,
-                        color: kPC.withOpacity(0.23),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      RichText(
-                        text: TextSpan(children: [
-                          TextSpan(
-                            text: "Samantha\n".toUpperCase(),
-                            style: Theme.of(context).textTheme.button,
-                          ),
-                          TextSpan(
-                              text: 'Russia',
-                              style: TextStyle(color: kPC.withOpacity(0.5))),
-                        ]),
-                      ),
-                      Spacer(),
-                      Text(
-                        '\$440',
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            .copyWith(color: kPC),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
+          TitleCustomWithButton(text: '추천하는 식물'),
+          RecommendPlantCards(),
+          TitleCustomWithButton(text: '이달의 식물'),
         ],
       ),
     );
