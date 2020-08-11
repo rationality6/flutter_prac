@@ -6,7 +6,6 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    print(size.height * 0.1);
     return Container(
       margin: EdgeInsets.only(bottom: kDP * 1.4),
       height: size.height * 0.1,
@@ -34,7 +33,7 @@ class Header extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "안녕 코방",
+                        "안녕 미르님",
                         style: TextStyle(
                           fontSize: 26,
                           color: Colors.white,

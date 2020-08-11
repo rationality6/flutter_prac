@@ -31,10 +31,20 @@ class RecommendPlantCard extends StatelessWidget {
         onTap: () {},
         child: Column(
           children: [
-            Image.asset(image),
+            ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
+              child: Image.asset(image),
+            ),
             Container(
               padding: EdgeInsets.all(kDP / 2),
               decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(

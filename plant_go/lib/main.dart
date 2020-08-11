@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plant_go/components/%20title/title_custom.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 // scaffolds
 import 'package:plant_go/components/header.dart';
@@ -9,6 +10,7 @@ import 'package:plant_go/components/appbar.dart';
 // components
 // import 'package:plant_go/components/form_test_page.dart';
 import 'package:plant_go/components/recommend_plant_card/recommend_plant_cards.dart';
+import 'package:plant_go/components/featured_plants.dart';
 
 // models
 import 'package:plant_go/components/constants.dart';
@@ -18,7 +20,6 @@ import 'package:plant_go/models/user.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -50,8 +51,46 @@ class MyScreen extends StatelessWidget {
         child: Column(
           children: [
             Header(),
-            Body(),
-            // FormTestPage(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Body(),
+              ),
+            )
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.only(
+          left: kDP * 2,
+          right: kDP * 2,
+          bottom: kDP,
+        ),
+        height: 80,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0, -10),
+              blurRadius: 35,
+              color: kPC.withOpacity(0.38),
+            )
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              icon: SvgPicture.asset("assets/icons/flower.svg"),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: SvgPicture.asset("assets/icons/heart-icon.svg"),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: SvgPicture.asset("assets/icons/user-icon.svg"),
+              onPressed: () {},
+            ),
           ],
         ),
       ),
@@ -62,21 +101,18 @@ class MyScreen extends StatelessWidget {
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    double height = MediaQuery.of(context).size.height;
-    var padding = MediaQuery.of(context).padding;
-    double newheight = height - padding.top - padding.bottom;
-    print(newheight);
-
-    double appbarmaxheight = Scaffold.of(context).appBarMaxHeight;
-    print(appbarmaxheight);
-
     return Container(
       child: Column(
         children: [
           TitleCustomWithButton(text: '추천하는 식물'),
           RecommendPlantCards(),
           TitleCustomWithButton(text: '이달의 식물'),
+          FeaturedPlants(),
+          SizedBox(
+            height: 20,
+          ),
+          TitleCustomWithButton(text: '가장 많이 팔린 식물'),
+          RecommendPlantCards(),
         ],
       ),
     );

@@ -7,7 +7,6 @@ class RecommendPlantCards extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          SizedBox(height: 15),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(

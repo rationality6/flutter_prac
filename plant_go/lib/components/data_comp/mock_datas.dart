@@ -14,7 +14,6 @@ class _MockDatasState extends State<MockDatas> {
   Future<String> getData() async {
     Response response = await get(url);
     Map data = jsonDecode(response.body);
-    print(data['title']);
     return data['title'];
   }
 

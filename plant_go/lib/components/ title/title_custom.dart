@@ -22,7 +22,7 @@ class TitleCustomWithButton extends StatelessWidget {
             color: kPC,
             onPressed: () {},
             child: Text(
-              "More",
+              "더 보기",
               style: TextStyle(color: Colors.white),
             ),
             shape: RoundedRectangleBorder(

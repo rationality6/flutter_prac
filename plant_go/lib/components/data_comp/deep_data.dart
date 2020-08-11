@@ -41,7 +41,6 @@ class _DeepDataState extends State<DeepData> {
       );
       result.add(faq);
     }
-    print(result[0]);
     return result;
   }
 

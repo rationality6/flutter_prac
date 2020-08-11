@@ -15,7 +15,6 @@ class _TimeDatasState extends State<TimeDatas> {
       flag: "germany.png",
     );
     await instance.getTime();
-    print(instance.time);
     setState(() {
       _foobar = instance.time;
     });
