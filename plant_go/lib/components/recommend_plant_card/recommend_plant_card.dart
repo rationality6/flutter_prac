@@ -28,7 +28,9 @@ class RecommendPlantCard extends StatelessWidget {
       ),
       width: size.width * 0.4,
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          press();
+        },
         child: Column(
           children: [
             ClipRRect(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:plant_go/components/recommend_plant_card/recommend_plant_card.dart';
 
+import 'package:plant_go/components/details/details.dart';
+
 class RecommendPlantCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,11 @@ class RecommendPlantCards extends StatelessWidget {
                   title: 'Samantha',
                   country: "Russia",
                   price: 440,
-                  press: () {},
+                  press: () {
+                    print("foo");
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Details()));
+                  },
                 ),
                 RecommendPlantCard(
                   image: 'assets/images/image_2.png',

@@ -108,9 +108,7 @@ class Body extends StatelessWidget {
           RecommendPlantCards(),
           TitleCustomWithButton(text: '이달의 식물'),
           FeaturedPlants(),
-          SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 20),
           TitleCustomWithButton(text: '가장 많이 팔린 식물'),
           RecommendPlantCards(),
         ],
