@@ -5,11 +5,11 @@ void main() {
 }
 
 class Calculate_Total {
-  int ret_tot() {}
+  ret_tot() {}
 }
 
 class Calculate_Discount {
-  int ret_dis() {}
+  ret_dis() {}
 }
 
 class Calculator implements Calculate_Total, Calculate_Discount {
